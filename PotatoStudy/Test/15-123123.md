@@ -1,5 +1,0 @@
-Write
-Preview
-
-Markdown
-WYSIWYG
