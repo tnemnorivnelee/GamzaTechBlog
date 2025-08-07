@@ -1,4 +1,4 @@
-![Uploaded Image](https://gamzatech-bucket.s3.ap-northeast-2.amazonaws.com/post-images/73/a0cbc355-37fa-4b81-81b7-9060b8d40d27_image.png)
+![Uploaded Image](https://gamzatech-bucket.s3.ap-northeast-2.amazonaws.com/post-images/73/3a6a1e42-e26e-4c47-ac14-3b6f29eb6d0f_image.png)
 
 백엔드 Swagger 문서를 보는 중에 문득 그런 생각이 들었습니다.
 
