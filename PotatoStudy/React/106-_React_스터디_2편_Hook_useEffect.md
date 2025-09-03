@@ -120,7 +120,7 @@ useEffect(() => {
 ## 2-2. 뒷정리는 필수! 클린업(Cleanup) 함수
 `useEffect`에는 숨겨진 강력한 기능이 하나 더 있습니다. 바로 클린업(Cleanup) 입니다.
 
-```javacript
+```javascript
 useEffect(() => {
   console.log("effect 실행"); // (B)
 
