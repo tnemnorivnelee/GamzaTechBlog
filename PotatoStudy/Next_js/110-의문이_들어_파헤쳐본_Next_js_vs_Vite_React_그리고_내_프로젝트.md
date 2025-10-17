@@ -1,5 +1,5 @@
 ## 찝찝함의 시작
-![Uploaded Image](https://gamzatech-bucket.s3.ap-northeast-2.amazonaws.com/post-images/110/35681d51-5751-4a0c-b102-175a30a0a557_image.png)
+![Uploaded Image](https://gamzatech-bucket.s3.ap-northeast-2.amazonaws.com/post-images/110/b16ee56b-66a6-4f48-8123-f50ea444b706_image.png)
 
 2학기, 졸업 프로젝트가 시작되었다.
 
