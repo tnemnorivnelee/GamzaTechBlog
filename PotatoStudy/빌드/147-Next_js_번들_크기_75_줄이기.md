@@ -2,7 +2,7 @@
 
 프로젝트가 진행되면서 빌드 시간이 점점 늘어나는 문제를 확인했습니다. 초기 10초 이내였던 빌드 시간이 현재는 약 20초로 2배 가량 증가했고, 개발 과정에서 코드를 수정하고 테스트할 때마다 상당한 시간이 소요되어 생산성 저하를 체감하게 되었습니다.
 
-![](https://velog.velcdn.com/images/tnemnorivnelee/post/48a46fee-5ac5-4a6c-abb1-da5dddfc36f5/image.png)
+![Uploaded Image](https://gamzatech-bucket.s3.ap-northeast-2.amazonaws.com/post-images/147/df23be60-292c-43e5-b02c-c7c1c2463ff5_image.png)
 
 빌드 결과를 분석한 결과, 다음과 같은 문제점을 발견했습니다:
 
