@@ -1,4 +1,5 @@
 # REST API 란?
+![Uploaded Image](https://gamzatech-bucket.s3.ap-northeast-2.amazonaws.com/post-images/167/9b852edf-d863-41d9-ad5f-b5ba51c92b94_image.png)
 
 REST 원칙을 적용하여 설계한 서비스 API를 말한다.
 
