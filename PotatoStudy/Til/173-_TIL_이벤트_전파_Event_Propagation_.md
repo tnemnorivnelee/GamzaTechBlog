@@ -54,8 +54,6 @@ document.getElementById('parent').addEventListener('click', () => {
 
 `li`를 클릭했을 때 `ul`의 이벤트 핸들러까지 실행되는 이유가 바로 버블링이다.
 
-> `click`, `input`, `scroll` 등 대부분의 이벤트는 버블링이 발생하지만,
-> `focus`, `blur`처럼 버블링이 발생하지 않는 이벤트도 있다.
 
 ---
 
