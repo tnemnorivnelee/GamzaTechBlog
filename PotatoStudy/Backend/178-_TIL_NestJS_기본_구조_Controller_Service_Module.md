@@ -105,8 +105,59 @@ export class UserModule {}
 
 #### Module이 왜 필요할까?
 
-처음에는 "그냥 파일로 나누면 되는 거 아닌가?" 싶을 수 있다.  
-Module이 필요한 이유는 크게 두 가지다.
+처음에는 "React처럼 그냥 `import`해서 쓰면 되는 거 아닌가?" 싶을 수 있다.
+
+React 컴포넌트는 **함수 정의** 자체를 가져오기 때문에 `import`만으로 충분하다.  
+하지만 NestJS의 Service는 **인스턴스(객체)** 가 필요하다. 누군가가 만들어주고 관리해줘야 한다.
+
+```ts
+// ❌ new로 직접 만들면?
+class AuthService {
+  private userService = new UserService()
+}
+class PostService {
+  private userService = new UserService() // UserService가 두 개 생김
+}
+```
+
+DB 연결이나 설정값처럼 **앱 전체에서 하나만 존재해야 하는 것**들이 여러 개 생기면 문제가 발생한다.
+
+더 큰 문제는 의존성이 깊어질수록 개발자가 직접 순서를 맞춰야 한다는 점이다.
+
+```ts
+// 의존성 체인이 생기면?
+// ConfigService → DatabaseService → UserService → AuthService
+const config = new ConfigService()
+const db = new DatabaseService(config)
+const userService = new UserService(db)
+const authService = new AuthService(userService) // 😱 순서 틀리면 에러
+```
+
+Module(IoC 컨테이너)을 사용하면 이 과정을 NestJS가 자동으로 처리해준다.
+
+```ts
+// ✅ 선언만 해두면 NestJS가 순서 파악 후 알아서 생성
+providers: [ConfigService, DatabaseService, UserService, AuthService]
+```
+
+**React의 Context와 비교하면 이해가 쉽다.**
+
+```tsx
+// Context 없이 → 컴포넌트마다 새 인스턴스
+<ComponentA userService={new UserService()} />
+<ComponentB userService={new UserService()} /> // 서로 다른 인스턴스!
+
+// Context Provider → 하나만 만들어서 하위에 공유
+<UserServiceProvider>
+  <ComponentA /> // 같은 인스턴스 공유
+  <ComponentB /> // 같은 인스턴스 공유
+</UserServiceProvider>
+```
+
+NestJS의 Module이 바로 이 `Provider`와 같은 역할이다.  
+**"내가 인스턴스를 만들고 관리할 테니, 너네는 그냥 쓰기만 해"** 라는 것이다.
+
+정리하면, Module이 필요한 이유는 아래 두 가지다.
 
 1. **DI 컨테이너의 범위 지정** — NestJS는 Module 단위로 어떤 Service가 어디서 사용 가능한지 관리한다. `exports`에 명시하지 않으면 외부 모듈에서 해당 Service를 사용할 수 없다.
 2. **캡슐화** — 내부 구현을 숨기고, 필요한 것만 외부에 공개할 수 있다.
